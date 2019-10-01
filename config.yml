@@ -1,0 +1,81 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+
+# Default
+# language: en
+# pipeline: supervised_embeddings
+
+
+# ----------------------------------
+# DEFAULT
+# ----------------------------------
+# language: en
+# pipeline:
+# - name: "supervised_embeddings"
+# - name: "DucklingHTTPExtractor"
+#   url: "http://127.0.0.1:8000"
+#   dimensions: ["time"] 
+
+# ----------------------------------
+# DUCKLING # https://rasa.com/docs/rasa/nlu/components/#ducklinghttpextractor
+# ----------------------------------
+language: "en"
+pipeline: 
+- name: "WhitespaceTokenizer"
+- name: "RegexFeaturizer"
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "CountVectorsFeaturizer"
+- name: "EmbeddingIntentClassifier"
+  intent_tokenization_flag: true
+  intent_split_symbol: "+"
+- name: "DucklingHTTPExtractor"
+  url: "http://127.0.0.1:8000"
+  dimensions: ["time"]
+  timezone: "Asia/Manila"
+
+# ----------------------------------
+# SPACY
+# ----------------------------------
+
+# pip install -U spacy
+# python -m spacy download en_core_web_md
+# python -m spacy link en_core_web_md en
+
+# SPACY PIPELINE
+# language: "en"
+# pipeline: "pretrained_embeddings_spacy"
+
+# ----------------------------------
+# PIPELINE for LOOKUP
+# ----------------------------------
+# language: "en"
+# pipeline:
+# - name: "nlp_spacy"
+# - name: "tokenizer_spacy"
+# - name: "intent_entity_featurizer_regex"
+# - name: "ner_crf"
+#   features: [
+#               ["low", "title", "upper"],
+#               ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3",
+#                "suffix2", "upper", "title", "digit", "pattern"],
+#               ["low", "title", "upper"]
+#             ]
+
+
+# ----------------------------------
+# POLICY
+# ----------------------------------
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+
+policies:
+  - name: MemoizationPolicy
+  - name: KerasPolicy
+  - name: MappingPolicy
+
+  - name: "FallbackPolicy"
+    nlu_threshold: 0.4
+    core_threshold: 0.3
+    fallback_action_name: "my_fallback_action"

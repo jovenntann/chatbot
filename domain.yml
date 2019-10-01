@@ -1,0 +1,540 @@
+actions:
+# Actions
+- my_fallback_action
+- action_search_provider
+- action_name
+# Get Started
+- utter_getstarted
+- utter_getstarted_options
+- utter_getstarted_agent
+- utter_getstarted_provider
+# General
+- utter_greet
+- utter_aboutus
+- utter_goodbye
+- utter_welcome
+- utter_call_representative
+- utter_transfer_to_agent
+# Wallet
+- utter_balance
+- utter_cashout_method
+# Book a Service
+- utter_how_it_work
+- utter_ask_main_category
+# Home Services
+- utter_ask_home_services
+- utter_ask_cleaning_services
+- utter_ask_electrical_services
+- utter_ask_aircon_services
+# Technology Services
+- utter_ask_technology_services
+- utter_ask_location
+- utter_ask_number
+- utter_ask_when
+- utter_ask_remarks
+- utter_please_wait
+- utter_provider
+# Provider Get Started
+- utter_ask_email
+- utter_process_completed
+- utter_whatis_provider_wallet
+
+entities:
+# Get Started
+- referrer
+# Book a Service
+- location
+- main_category # Home
+- service_category # Cleaning Services
+- specialty # Carpet Cleaning
+- type
+- phone_number
+- email # Provider
+
+intents:
+# General
+- greet
+- goodbye
+- thankyou
+- talktohuman
+# Basic Questions
+- aboutus
+# Boolean
+- deny
+- affirm
+# Getting Started
+- get_started
+- referred
+# Be an Agent
+- be_an_agent
+# Be a Provider
+- be_a_provider
+- whatis_wallet
+# Book a Service - Main Categories
+- provider_home
+- provider_office
+- provider_events
+- provider_transport
+- provider_technology
+# Book a Service - Sub Categories
+- provider_cleaning_services
+- provider_interior_design
+- provider_electrical_services
+- provider_plumbing_services
+- provider_aircon_services
+- provider_home_renovation
+- provider_laundry_services
+# Book a Service - Specialty
+- inform_specialty
+- inform
+- provider_lookup
+- provider_lookup_remarks
+- dates
+
+# Wallet
+- check_balance
+- cashout
+- cashout_method
+# Testing
+- testing
+
+
+slots:
+  # General
+  first_name:
+    type: text
+  last_name:
+    type: text
+  # Get Started
+  referrer:
+    type: text
+  # Book a Service
+  main_category:
+    type: text
+  service_category:
+    type: text
+  specialty:
+    type: text
+  location:
+    type: text
+  phone_number:
+    type: text
+  email:
+    type: text
+  # Duckling
+  time:
+    type: unfeaturized
+  entity_extractor:
+    type: unfeaturized
+  entity_time:
+   type: unfeaturized
+
+templates:
+
+  # GET STARTED =======================================================================================================================================
+  utter_getstarted:
+    - text: "HI {first_name}! Our platform is tailor made to make sure that every Provider gets the opportunity to increase their sales with minimal effort and without breaking a bank account. Agents are also ensured of getting an income by giving them anything they need to make a sale."
+  utter_getstarted_options:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: Book a Service
+              image_url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtW5iM35eioHwEaJ8JwlJwrwzDTlwNhak3PcuEZrs0KN1KHDn7w
+              subtitle: Get in touch with our Trusted and Professional Service Providers
+              buttons:
+              - type: postback
+                title: Book a Service
+                payload: Book a Service
+            - title: Agent
+              image_url: https://www.business.com/images/content/5ca/3daf75a215e8a458b9a90/1500-0-
+              subtitle: Be our agent and start generating income
+              buttons:
+              - type: postback
+                title: Be an Agent
+                payload: Be an Agent
+            - title: Provider
+              image_url: https://5.imimg.com/data5/IN/FQ/GLADMIN-33773374/carpentry-500x500.jpg
+              subtitle: Join us to boost your sales
+              buttons:
+              - type: postback
+                title: Be a Provider
+                payload: Be a Provider
+  utter_getstarted_agent:
+  - text: "Thank you for your interest {first_name} to become one of our agent. Here are the some of the ways how you can earn using our platform.\n\n*Invites* You can earn by helping us grow by inviting others to become our agents or provider.\n\n*Book a Service* once you book a service for yourself or for other you will also earn a certain percentage of that service. (percentage is depend on the type of service)"
+  # GENERAL ===========================================================================================================================================
+  utter_greet:
+  - text: Hi {first_name} {last_name}! How can I help you today?
+    quick_replies:
+    - content_type: text
+      title: About Us
+      payload: About Us
+    - content_type: text
+      title: Book a Service
+      payload: Book a Service
+    - content_type: text
+      title: Be an Agent
+      payload: Be an Agent
+    - content_type: text
+      title: Be a Provider
+      payload: Be a Provider
+  - text: Good Day {first_name} {last_name}! How can I assist you?
+    quick_replies:
+    - content_type: text
+      title: About Us
+      payload: About Us
+    - content_type: text
+      title: Book a Service
+      payload: Book a Service
+    - content_type: text
+      title: Be an Agent
+      payload: Be an Agent
+    - content_type: text
+      title: Be a Provider
+      payload: Be a Provider
+  utter_aboutus:
+  - text: "Our platform is tailor made to make sure that every Provider gets the opportunity to increase their sales with minimal effort and without breaking a bank account. Agents are also ensured of getting an income by giving them anything they need to make a sale. \n\n You can ask me to *Book a Service*, Check your *Wallet Balance*, Process your *Cashout*, Help you *Refer and Invites* to earn more. "
+  utter_goodbye:
+  - text: Bye
+  - text: Goodbye, see you later
+  utter_welcome:
+  - text: You're Welcome 
+  utter_call_representative:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: button
+            text: Need further assistance? Talk to a representative
+            buttons:
+            - type: phone_number
+              title: Call Representative
+              payload: "+639062131607"
+  utter_transfer_to_agent:
+  - text: Please be patient our staff will get in touch with you as soon as possible. Thank you
+  # WALLET ============================================================================================================================================
+  utter_balance:
+    - custom:
+        attachment: 
+          type: template
+          payload: 
+            template_type: generic
+            elements: 
+              - title: "Balance: P150"
+                image_url: "https://www.stlouisfed.org/~/media/Blog/2019/June/BlogImage_FintechDigitalWallets_062519.jpg"
+                subtitle: "Your current wallet balance"
+                default_action: 
+                  type: web_url
+                  url: "https://www.servicereferralhub.com/"
+                  webview_height_ratio: compact
+                buttons: 
+                - type: postback
+                  title: "Cash-out"
+                  payload: Cash-out
+  utter_cashout_method:
+  - text: Awesome! Please select cashout payment method.
+    quick_replies:
+    - content_type: text
+      title: GCash
+      payload: GCash
+    - content_type: text
+      title: PayMaya
+      payload: PayMaya
+    - content_type: text
+      title: Cebuana
+      payload: Cebuana
+  # BOOK A SERVICE ====================================================================================================================================
+  utter_how_it_work:
+  - text: "HOW IT WORKS\n\n✅ Our system will look for matched Service Providers\n✅ One service provider will contact you to confirm the appointment\n✅ Pay the technician directly and rate their service\n✅ Our service provider pay a small fee to accept your job."
+  utter_ask_main_category:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: Home
+              image_url: https://scottchristopherhomes.com/wp-content/uploads/2017/03/bigstock-Tool-Belt-With-Tools-107244224_web.jpg
+              subtitle: House Maintenance and Services
+              buttons:
+              - type: postback
+                title: Home
+                payload: home
+            - title: Automotive & Transport
+              image_url: https://ehsangoods.com/wp-content/uploads/2018/12/2826843-how-to-pursue-furniture-shifting-while-you-relocate-to-a-distant-city_600px.png
+              subtitle: Movers, Trucking Services, Office Movers & Relocators
+              buttons:
+              - type: postback
+                title: Automotive & Transport
+                payload: transport
+            - title: Office
+              image_url: https://3.imimg.com/data3/RY/BH/MY-11924991/back-office-services-500x500.jpg
+              subtitle: Business Services & IT Solutions
+              buttons:
+              - type: postback
+                title: Office
+                payload: office
+            - title: Events
+              image_url: https://www.pottergroupevents.co.uk/wp-content/uploads/2018/09/E3A1604.jpg
+              subtitle: Photographer, Lights, Videographer & Catering
+              buttons:
+              - type: postback
+                title: Events
+                payload: events
+            - title: Technology
+              image_url: https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg
+              subtitle: Software & Hardware Technology
+              buttons:
+              - type: postback
+                title: Technology
+                payload: technology
+  utter_ask_home_services:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: Cleaning Services
+              image_url: https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg
+              subtitle: Hire our cleaning experts
+              buttons:
+              - type: postback
+                title: Cleaning Services
+                payload: cleaning_services
+            - title: Interior Design
+              image_url: https://www.arch2o.com/wp-content/uploads/2018/09/Arch2O-InteriorDesigner-9-1.jpg
+              subtitle: Interior Design Experts
+              buttons:
+              - type: postback
+                title: Interior Design
+                payload: interior_design
+            - title: Electrical Services
+              image_url: http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg
+              subtitle: Electrical Installation, Maintenance & Troubleshooting
+              buttons:
+              - type: postback
+                title: Electrical Services
+                payload: electrical_services
+            - title: Plumbing
+              image_url: http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg
+              subtitle: Plumbing Services
+              buttons:
+              - type: postback
+                title: Plumbing Services
+                payload: plumbing_services
+            - title: Aircon Services
+              image_url: https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg
+              subtitle: Aircon Installation, Cleaning & Repair
+              buttons:
+              - type: postback
+                title: Aircon Services
+                payload: aircon_services
+            - title: Home Renovation
+              image_url: https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg
+              subtitle: Home Renovation & Improvements
+              buttons:
+              - type: postback
+                title: Home Renovation
+                payload: home_renovation 
+            - title: Laundry & Dry Cleaning
+              image_url: https://media3.s-nbcnews.com/i/newscms/2016_32/1149295/laundry-stock-today-160808-tease_8816217b49c15bf3fc07bbcd6558c2db.jpg
+              subtitle: Dry Cleaning to Wash & Fold Services
+              buttons:
+              - type: postback
+                title: Laundry
+                payload: laundry_services
+  utter_ask_cleaning_services:
+  - text: Which type of Cleaning Services do you need?
+    quick_replies:
+    - content_type: text
+      title: Thorough Cleaning
+      payload: thorough_cleaning
+    - content_type: text
+      title: House Cleaning
+      payload: house_cleaning
+    - content_type: text
+      title: Carpet Cleaning
+      payload: carpet_cleaning   
+    - content_type: text
+      title: Sofa and Mattress Cleaning
+      payload: sofa_and_matress_cleaning    
+    - content_type: text
+      title: Upholstery Cleaning
+      payload: upholstery_cleaning
+    - content_type: text
+      title: General Cleaning
+      payload: general_cleaning
+  utter_ask_aircon_services:
+  - text: Which type of Aircon Services do you need?
+    quick_replies:
+    - content_type: text
+      title: Aircon Cleaning
+      payload: aircon_cleaning
+    - content_type: text
+      title: Aircon Installation
+      payload: aircon_installation
+    - content_type: text
+      title: Aircon Repair
+      payload: aircon_repair   
+  utter_ask_electrical_services:
+  - text: Which type of Electrical Services do you need?
+    quick_replies:
+    - content_type: text
+      title: Lighting Installation or Repair
+      payload: lighting_installation_repair
+    - content_type: text
+      title: Breaker Installation or Repair
+      payload: breaker_installation_repair
+    - content_type: text
+      title: Water Heater Installation or Repair
+      payload: water_heater_installation_repair 
+
+
+  utter_ask_technology_services:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: Web Development
+              image_url: https://careerfoundry.com/en/blog/uploads/web_dev_pillar_page.jpg
+              subtitle: Old music is great. Old websites are not
+              buttons:
+              - type: postback
+                title: Web Development
+                payload: web_development
+            - title: Mobile Development
+              image_url: https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg
+              subtitle: Launch your first Mobile App
+              buttons:
+              - type: postback
+                title: Mobile Development
+                payload: mobile_development
+            - title: Marketing Services
+              image_url: https://www.evolvedigitas.com/blog/wp-content/uploads/2018/05/digital-marketing.jpg
+              subtitle: Explore the Strategy of Services Marketing
+              buttons:
+              - type: postback
+                title: Marketing Services
+                payload: marketing_services
+            - title: Graphic Design
+              image_url: https://www.shillingtoneducation.com/content-blog/uploads/2019/01/IMG_4022-copy.jpg
+              subtitle: Great designs inspire people and drive them to action
+              buttons:
+              - type: postback
+                title: Graphic Design
+                payload: graphic_design
+                
+  utter_ask_location:
+  - text: Please specify where do you need the service? (Select or Enter if your area is not in the list)
+    quick_replies:
+    - content_type: text
+      title: Marikina
+      payload: Marikina
+    - content_type: text
+      title: Pasig
+      payload: Pasig   
+    - content_type: text
+      title: Quezon City
+      payload: Quezon City
+    - content_type: text
+      title: Makati
+      payload: Makati
+    - content_type: text
+      title: Caloocan
+      payload: Caloocan
+    - content_type: text
+      title: Malabon
+      payload: Malabon
+    - content_type: text
+      title: Manadaluyong
+      payload: Manadaluyong
+  utter_ask_number:
+  - text: For better experience we might need to contact you on your mobile phone. Please enter your mobile number.
+  utter_ask_when:
+  - text: When do you need the Service? (You can enter the date in any format)
+    quick_replies:
+    - content_type: text
+      title: Next Week
+      payload: Next Week
+    - content_type: text
+      title: Weekend
+      payload: Weekend   
+    - content_type: text
+      title: Tomorrow
+      payload: Tomorrow
+  utter_ask_remarks:
+  - text: Please leave other instruction to provider (Optional)
+    quick_replies:
+    - content_type: text
+      title: Skip
+      payload: Skip
+  utter_please_wait:
+  - text: "Your booking details has been confirmed. Please be patient while we are contacting one of our Provider."
+  utter_provider:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: James ⭐⭐⭐⭐
+              image_url: https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/6939C238937E4CFB9A92C1E51EAB9320/ronquillo-carousel_6939C238937E4CFB9A92C1E51EAB9320.jpg
+              subtitle: Master Electrician
+              default_action:
+                type: web_url
+                url: https://www.servicereferralhub.com
+                webview_height_ratio: compact
+              buttons:
+              - title: Accept
+                type: postback
+                payload: Accept
+              - title: Reviews
+                type: web_url
+                url: https://www.servicereferralhub.com/provider/reviews/
+                messenger_extensions: true
+                webview_height_ratio: compact
+                fallback_url: https://www.servicereferralhub.com/provider/reviews/
+            - title: Karen ⭐⭐⭐⭐⭐
+              image_url: https://thumbs.dreamstime.com/b/female-electrician-fitting-conduit-wall-construction-site-female-female-electrician-fitting-conduit-wall-construction-117488713.jpg
+              subtitle: Expert Electrician
+              default_action:
+                type: web_url
+                url: https://www.servicereferralhub.com
+                webview_height_ratio: compact
+              buttons:
+              - title: Accept
+                type: postback
+                payload: Accept
+              - title: Reviews
+                type: web_url
+                url: https://www.servicereferralhub.com/provider/reviews/
+                messenger_extensions: true
+                webview_height_ratio: compact
+                fallback_url: https://www.servicereferralhub.com/provider/reviews/
+
+  utter_getstarted_provider:
+  - text: "Service Referral Hub is a Digital Marketing Service that can help you find customer. We built Artificial Intelligent ChatBot that can assist you anytime. Once you completed the registration process we are going to give you a free 200 credits that you can use to get customers.\n\nI am going to guide you with a simple question to setup your profile (This will help our system to send a relevant service request to your business)"
+
+  utter_ask_email:
+  - text: What is your email address?
+    quick_replies:
+    - content_type: text
+      title: Skip
+      payload: Skip 
+
+  utter_process_completed:
+  - text: Thank you for completing the process and Welcome to Service Referral Hub. You received free (P200) credits in your Wallet.
+    quick_replies:
+    - content_type: text
+      title: About Wallet
+      payload: about_wallet
+
+  utter_whatis_provider_wallet:
+  - text: "Service Referral Hub Wallet is your credit that you can use to send quotation to service requests.\n\n
+           Wallet Credits are being deducted once the customer Accepted your Quotation. \n\n
+           You need to maintain at least 100 credits to continuously receive a service request from our Bot."

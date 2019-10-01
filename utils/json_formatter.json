@@ -1,0 +1,84 @@
+{
+    "recipient":{
+      "id":"2233033630067075"
+    },
+    "message":{
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":"Agent",
+              "image_url":"https://www.business.com/images/content/5ca/3daf75a215e8a458b9a90/1500-0-",
+              "subtitle":"Become our agent and start to earning",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com/view?item=103",
+                "webview_height_ratio": "tall"
+              },
+              "buttons":[
+                {
+                  "type":"postback",
+                  "title":"Be an Agent",
+                  "payload":"Be an Agent"
+                }              
+              ]      
+            },
+            {
+              "title":"Provider",
+              "image_url":"https://5.imimg.com/data5/IN/FQ/GLADMIN-33773374/carpentry-500x500.jpg",
+              "subtitle":"Provide any kind of service and want to boost your sales",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com/view?item=103",
+                "webview_height_ratio": "tall"
+              },
+              "buttons":[{
+                  "type":"postback",
+                  "title":"Be a Provider",
+                  "payload":"Be a Provider"
+                }              
+              ]      
+            }
+          ]
+        }
+      }
+    }
+  }
+
+
+  {
+    "recipient":{
+      "id":"2233033630067075"
+    },
+    "message":{
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+            {
+              "title":"Provider",
+              "image_url":"https://5.imimg.com/data5/IN/FQ/GLADMIN-33773374/carpentry-500x500.jpg",
+              "subtitle":"Provide any kind of service and want to boost your sales",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com/view?item=103",
+                "webview_height_ratio": "tall"
+              },
+              "buttons":[{
+                  "title": "Shop Now",
+                  "type": "web_url",
+                  "url": "https://www.servicereferralhub.com",
+                  "messenger_extensions": true,
+                  "webview_height_ratio": "tall",
+                  "fallback_url": "https://www.servicereferralhub.com"
+                }              
+              ]      
+            }
+          ]
+        }
+      }
+    }
+  }
