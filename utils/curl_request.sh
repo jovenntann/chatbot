@@ -141,18 +141,18 @@ curl -X POST -H "Content-Type: application/json" -d '{
         "call_to_actions": [
               {
                 "type": "postback",
-                "title": "Book a Service",
-                "payload": "Book a Service"
+                "title": "🔍 Hire Provider",
+                "payload": "Hire Provider"
             },
             {
                 "type": "postback",
-                "title": "Referrals",
-                "payload": "Referrals"
+                "title": "📈 Refer",
+                "payload": "Refer"
             },
             {
               "type": "postback",
-              "title": "Wallet",
-              "payload": "Wallet"
+              "title": "ℹ️ About Us",
+              "payload": "About Us"
             }
         ]
     }
