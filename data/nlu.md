@@ -306,16 +306,20 @@
 <!--- MAIN CATEGORY ======================================================================================-->
 ## intent:provider_home
 - [home](main_category)
+- [Home](main_category)
 ## intent:provider_office
 - [office](main_category)
+- [Office](main_category)
 ## intent:provider_events
 - [events](main_category)
+- [Events](main_category)
 ## intent:provider_transport
-- [transport ](main_category)
+- [transport](main_category)
+- [Transport](main_category)
 ## intent:provider_technology
 - [technology](main_category)
-## intent:provider_events
-- [events](main_category)
+- [Technology](main_category)
+
 
 <!--- HOME SERVICES ============================================-->
 ## intent:provider_cleaning_services
@@ -372,7 +376,7 @@
 - i need [web developer](specialty:web_developer)
 
 <!-- HOME:Cleaning Services-->
-- [thorough_cleaning](thorough_cleaning)
+- [thorough_cleaning](specialty)
 - [Thorough Cleaning](specialty:thorough_cleaning)
 - [thorough cleaning](specialty:thorough_cleaning)
 
