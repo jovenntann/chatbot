@@ -368,7 +368,7 @@
 - i am looking for [House Cleaning](specialty:house_cleaning)
 - i am looking for [Web Developer](specialty:web_developer)
 - i need [general cleaning](specialty:general_cleaning)
-- do you have [Aircon Cleaning](specialty:aircon_installation)
+- do you have [Aircon Cleaning](specialty:aircon_cleaning)
 - i need [web developer](specialty:web_developer)
 
 <!-- HOME:Cleaning Services-->
@@ -402,7 +402,6 @@
 <!-- HOME:Aircon Services-->
 - [aircon_cleaning](specialty)
 - [aircon cleaning](specialty:aircon_cleaning)
-- [Aircon Cleaning](specialty:aircon_cleaning)
 - [Aircon Cleaning](specialty:aircon_cleaning)
 
 - [aircon_repair](specialty)
