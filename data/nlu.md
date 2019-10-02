@@ -366,8 +366,10 @@
 ## intent:inform_specialty
 <!-- Processing Entity in Sentence -->
 - i am looking for [House Cleaning](specialty:house_cleaning)
+- i am looking for [Web Developer](specialty:web_developer)
 - i need [general cleaning](specialty:general_cleaning)
 - do you have [Aircon Cleaning](specialty:aircon_installation)
+- i need [web developer](specialty:web_developer)
 
 <!-- HOME:Cleaning Services-->
 - [thorough_cleaning](thorough_cleaning)
