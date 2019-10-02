@@ -495,6 +495,9 @@
 - we need service provider
 - please help me look for a provider
 - Book a Service
+- Hire Provider
+- Hire a Provider
+- Looking for provider
 ## intent:provider_lookup_remarks
 - Center mall mandaluyong, seoul bistro restaurant Declogging of drain pipe
 - Continuous water on flush. The water wont stop even the flush tank is full

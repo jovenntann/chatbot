@@ -12,12 +12,27 @@ import json
 
 # MINI DATABASE ======================================================================================
 images = {
-  "electrical services": "https://www.kingstonelectrician.ca/wp-content/uploads/2018/06/electrician-2.jpg",
-  "cleaning serivces": "https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://nancyshousekeepingservice.com/wp-content/uploads/2019/04/Goleta-House-Cleaning.png",
-  "web developer": "https://careerfoundry.com/en/blog/uploads/web_dev_pillar_page.jpg",
-  "aircon services": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtheT1xgis2pPWB5nYJLbMgOjZ-zLNredzu5E2BLAJINg-KajMQ",
-  "interior designer": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJLoAIGlFI5rqf50-DH0qA6cV9uVYwAXjxef4T-W9ixXOu1QWM",
-  "moving services":"https://www.rd.com/wp-content/uploads/2016/09/01-guarantee-lies-moving-companies-tell-AndreyPopov.jpg"
+  "thorough_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
+  "house_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
+  "carpet_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
+  "upholstery_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
+
+  "aircon_cleaning":"https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg",
+  "aircon_repair":"https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg",
+  "aircon_installation":"https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg",
+
+  "lighting_installation_repair":"http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg",
+  "breaker_installation_repair":"http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg",
+  "water_heater_installation_repair":"http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg",
+
+  "laundry_services":"https://media3.s-nbcnews.com/i/newscms/2016_32/1149295/laundry-stock-today-160808-tease_8816217b49c15bf3fc07bbcd6558c2db.jpg",
+  "plumbing_services":"http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg",
+  "home_renovation":"https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg",
+  
+  "web_development": "https://careerfoundry.com/en/blog/uploads/web_dev_pillar_page.jpg",
+  "mobile_development":"https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg",
+  "marketing_services":"https://www.evolvedigitas.com/blog/wp-content/uploads/2018/05/digital-marketing.jpg",
+  "graphic_design":"https://www.shillingtoneducation.com/content-blog/uploads/2019/01/IMG_4022-copy.jpg",
 }
 
 class MyFallbackAction(Action):
@@ -138,7 +153,7 @@ class ActionSearchProvider(Action):
                     "elements":[{
                         "title":specialty,
                         "image_url":image,
-                        "subtitle":"Category: Home",
+                        "subtitle":"Category: Home - Location: " + location,
                         "default_action": {
                         "type": "web_url",
                         "url": "https://www.servicereferralhub.com/",

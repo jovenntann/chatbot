@@ -7,6 +7,7 @@ actions:
 - utter_getstarted
 - utter_getstarted_options
 - utter_getstarted_agent
+- utter_getstarted_agent_options
 - utter_getstarted_provider
 # General
 - utter_greet
@@ -18,7 +19,7 @@ actions:
 # Wallet
 - utter_balance
 - utter_cashout_method
-# Book a Service
+# Hire Provider
 - utter_how_it_work
 - utter_ask_main_category
 # Home Services
@@ -42,7 +43,7 @@ actions:
 entities:
 # Get Started
 - referrer
-# Book a Service
+# Hire Provider
 - location
 - main_category # Home
 - service_category # Cleaning Services
@@ -70,13 +71,13 @@ intents:
 # Be a Provider
 - be_a_provider
 - whatis_wallet
-# Book a Service - Main Categories
+# Hire Provider - Main Categories
 - provider_home
 - provider_office
 - provider_events
 - provider_transport
 - provider_technology
-# Book a Service - Sub Categories
+# Hire Provider - Sub Categories
 - provider_cleaning_services
 - provider_interior_design
 - provider_electrical_services
@@ -84,7 +85,7 @@ intents:
 - provider_aircon_services
 - provider_home_renovation
 - provider_laundry_services
-# Book a Service - Specialty
+# Hire Provider - Specialty
 - inform_specialty
 - inform
 - provider_lookup
@@ -108,7 +109,7 @@ slots:
   # Get Started
   referrer:
     type: text
-  # Book a Service
+  # Hire Provider
   main_category:
     type: text
   service_category:
@@ -141,13 +142,13 @@ templates:
           payload:
             template_type: generic
             elements:
-            - title: Book a Service
+            - title: Hire Provider
               image_url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtW5iM35eioHwEaJ8JwlJwrwzDTlwNhak3PcuEZrs0KN1KHDn7w
               subtitle: Get in touch with our Trusted and Professional Service Providers
               buttons:
               - type: postback
-                title: Book a Service
-                payload: Book a Service
+                title: Hire Provider
+                payload: Hire Provider
             - title: Agent
               image_url: https://www.business.com/images/content/5ca/3daf75a215e8a458b9a90/1500-0-
               subtitle: Be our agent and start generating income
@@ -163,7 +164,28 @@ templates:
                 title: Be a Provider
                 payload: Be a Provider
   utter_getstarted_agent:
-  - text: "Thank you for your interest {first_name} to become one of our agent. Here are the some of the ways how you can earn using our platform.\n\n*Invites* You can earn by helping us grow by inviting others to become our agents or provider.\n\n*Book a Service* once you book a service for yourself or for other you will also earn a certain percentage of that service. (percentage is depend on the type of service)"
+  - text: "Kamusta {first_name}! to become one of our agent. Here are the some of the ways how you can earn using from Service Referral Hub.\n\n📊 Invites - You can earn by helping us grow by inviting others to become our agents or provider.\n\n📈 Hire Provider - You will earn comission for every successful service request from Service Referral Hub."
+  utter_getstarted_agent_options:
+    - custom: 
+        attachment:
+          type: template
+          payload:
+            template_type: generic
+            elements:
+            - title: Hire Provider
+              image_url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtW5iM35eioHwEaJ8JwlJwrwzDTlwNhak3PcuEZrs0KN1KHDn7w
+              subtitle: Get in touch with our Trusted and Professional Service Providers
+              buttons:
+              - type: postback
+                title: Hire Provider
+                payload: Hire our Provider and earn comission
+            - title: Invite a Friend
+              image_url: https://sm.pcmag.com/pcmag_ap/review/m/microsoft-/microsoft-invite-for-iphone_x2gq.jpg
+              subtitle: Be our agent and start generating income
+              buttons:
+              - type: postback
+                title: Invite a Friend
+                payload: Invite a Friend
   # GENERAL ===========================================================================================================================================
   utter_greet:
   - text: Hi {first_name} {last_name}! How can I help you today?
@@ -172,8 +194,8 @@ templates:
       title: About Us
       payload: About Us
     - content_type: text
-      title: Book a Service
-      payload: Book a Service
+      title: Hire Provider
+      payload: Hire Provider
     - content_type: text
       title: Be an Agent
       payload: Be an Agent
@@ -186,8 +208,8 @@ templates:
       title: About Us
       payload: About Us
     - content_type: text
-      title: Book a Service
-      payload: Book a Service
+      title: Hire Provider
+      payload: Hire Provider
     - content_type: text
       title: Be an Agent
       payload: Be an Agent
@@ -195,7 +217,17 @@ templates:
       title: Be a Provider
       payload: Be a Provider
   utter_aboutus:
-  - text: "Our platform is tailor made to make sure that every Provider gets the opportunity to increase their sales with minimal effort and without breaking a bank account. Agents are also ensured of getting an income by giving them anything they need to make a sale. \n\n You can ask me to *Book a Service*, Check your *Wallet Balance*, Process your *Cashout*, Help you *Refer and Invites* to earn more. "
+  - text: "Our platform is tailor made to make sure that every Provider gets the opportunity to increase their sales with minimal effort and without breaking a bank account. Agents are also ensured of getting an income by giving them anything they need to make a sale"
+    quick_replies:
+    - content_type: text
+      title: Hire Provider
+      payload: Hire Provider
+    - content_type: text
+      title: Be an Agent
+      payload: Be an Agent
+    - content_type: text
+      title: Be a Provider
+      payload: Be a Provider
   utter_goodbye:
   - text: Bye
   - text: Goodbye, see you later
@@ -245,7 +277,7 @@ templates:
     - content_type: text
       title: Cebuana
       payload: Cebuana
-  # BOOK A SERVICE ====================================================================================================================================
+  # Hire Provider ====================================================================================================================================
   utter_how_it_work:
   - text: "HOW IT WORKS\n\n✅ Our system will look for matched Service Providers\n✅ One service provider will contact you to confirm the appointment\n✅ Pay the technician directly and rate their service\n✅ Our service provider pay a small fee to accept your job."
   utter_ask_main_category:
@@ -474,7 +506,7 @@ templates:
       title: Skip
       payload: Skip
   utter_please_wait:
-  - text: "Your booking details has been confirmed. Please be patient while we are contacting one of our Provider."
+  - text: "Your request has been processed. Please wait while we are contacting our Providers."
   utter_provider:
     - custom: 
         attachment:
@@ -518,7 +550,7 @@ templates:
                 fallback_url: https://www.servicereferralhub.com/provider/reviews/
 
   utter_getstarted_provider:
-  - text: "Service Referral Hub is a Digital Marketing Service that can help you find customer. We built Artificial Intelligent ChatBot that can assist you anytime. Once you completed the registration process we are going to give you a free 200 credits that you can use to get customers.\n\nI am going to guide you with a simple question to setup your profile (This will help our system to send a relevant service request to your business)"
+  - text: "Service Referral Hub is a Digital Marketing Service that can help you find customer. We built Artificial Intelligent ChatBot that can assist you anytime. Once you completed the registration process we are going to give you a free 200 credits that you can use to get customers.\n\nI am going to guide you with a simple question to setup your profile (This will help our system to send a relevant service request to your business)\n\nSelect Category"
 
   utter_ask_email:
   - text: What is your email address?

@@ -301,6 +301,7 @@
 ## Become an Agent
 * be_an_agent
     - utter_getstarted_agent
+    - utter_getstarted_agent_options
 
 <!-- PROVIDER REGISTRATION ========================================================================================================================================-->
 ## Become a Provider
