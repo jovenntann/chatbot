@@ -173,6 +173,8 @@ class ActionSearchProvider(Action):
                 }
             }
 
+            message = "Hi This is Joven from Service Referral Hub!"
+            sms_data = requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={message}') 
             dispatcher.utter_message(f"Note: You will earn a Rebate for every successful booking from this platform and it will automatically added in your Service Referral Hub - Wallet. ")
             dispatcher.utter_message(f'You have requested for {specialty} in {location} at {time} and your contact number is {phone_number}. Please Tap on "Confirm" to confirm you request.')
     

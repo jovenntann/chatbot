@@ -550,7 +550,7 @@ templates:
                 fallback_url: https://www.servicereferralhub.com/provider/reviews/
 
   utter_getstarted_provider:
-  - text: "Service Referral Hub is a Digital Marketing Service that can help you find customer. We built Artificial Intelligent ChatBot that can assist you anytime. Once you completed the registration process we are going to give you a free 200 credits that you can use to get customers.\n\nI am going to guide you with a simple question to setup your profile (This will help our system to send a relevant service request to your business)\n\nSelect Category"
+  - text: "Service Referral Hub is a Digital Marketing Service that can help you find customer. We built Artificial Intelligent ChatBot that can assist you anytime. Once you completed the registration process we are going to give you a free 200 credits that you can use to get customers.\n\nI am going to guide you with a simple question to setup your profile (This will help our system to send a relevant service request to your business)\n\nPlease select your service category"
 
   utter_ask_email:
   - text: What is your email address?
