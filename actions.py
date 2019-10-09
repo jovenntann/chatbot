@@ -123,6 +123,7 @@ class ActionSearchProvider(Action):
         # main_category = tracker.get_slot('main_category')
         specialty = tracker.get_slot('specialty')
         service_category = tracker.get_slot('service_category')
+        first_name = tracker.get_slot('first_name')
         location = tracker.get_slot('location')
         time = tracker.get_slot('time')
         phone_number = tracker.get_slot('phone_number')
@@ -173,7 +174,7 @@ class ActionSearchProvider(Action):
                 }
             }
 
-            message = "Hi This is Joven from Service Referral Hub!"
+            message = "Hi {first_name}! You have requested for {specialty} in {location} at {time} (From: SRHUB DO NOT REPLY)"
             sms_data = requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={message}') 
             dispatcher.utter_message(f"Note: You will earn a Rebate for every successful booking from this platform and it will automatically added in your Service Referral Hub - Wallet. ")
             dispatcher.utter_message(f'You have requested for {specialty} in {location} at {time} and your contact number is {phone_number}. Please Tap on "Confirm" to confirm you request.')
