@@ -174,8 +174,8 @@ class ActionSearchProvider(Action):
                 }
             }
 
-            message = "Hi {first_name}! You have requested for {specialty} in {location} at {time} (From: SRHUB DO NOT REPLY)"
-            sms_data = requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={message}') 
+            text_message = f"Hi {first_name}! You have requested for {specialty} in {location}. \n\nFrom: SRHUB DO NOT REPLY"
+            requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={text_message}') 
             dispatcher.utter_message(f"Note: You will earn a Rebate for every successful booking from this platform and it will automatically added in your Service Referral Hub - Wallet. ")
             dispatcher.utter_message(f'You have requested for {specialty} in {location} at {time} and your contact number is {phone_number}. Please Tap on "Confirm" to confirm you request.')
     
