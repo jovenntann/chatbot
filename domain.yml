@@ -520,7 +520,7 @@ templates:
               default_action:
                 type: web_url
                 url: https://www.servicereferralhub.com
-                webview_height_ratio: compact
+                webview_height_ratio: tall
               buttons:
               - title: Accept
                 type: postback
@@ -529,7 +529,7 @@ templates:
                 type: web_url
                 url: https://www.servicereferralhub.com/provider/reviews/
                 messenger_extensions: true
-                webview_height_ratio: compact
+                webview_height_ratio: tall
                 fallback_url: https://www.servicereferralhub.com/provider/reviews/
             - title: Karen ⭐⭐⭐⭐⭐
               image_url: https://thumbs.dreamstime.com/b/female-electrician-fitting-conduit-wall-construction-site-female-female-electrician-fitting-conduit-wall-construction-117488713.jpg
@@ -537,7 +537,7 @@ templates:
               default_action:
                 type: web_url
                 url: https://www.servicereferralhub.com
-                webview_height_ratio: compact
+                webview_height_ratio: tall
               buttons:
               - title: Accept
                 type: postback
@@ -546,7 +546,7 @@ templates:
                 type: web_url
                 url: https://www.servicereferralhub.com/provider/reviews/
                 messenger_extensions: true
-                webview_height_ratio: compact
+                webview_height_ratio: tall
                 fallback_url: https://www.servicereferralhub.com/provider/reviews/
 
   utter_getstarted_provider:
