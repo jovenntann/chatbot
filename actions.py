@@ -72,7 +72,7 @@ class ActionName(Action):
 		most_recent_state = tracker.current_state()
 		sender_id = most_recent_state['sender_id']
 		
-		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BAJrZAFFkEaUYZCADKGjhZAZCgH2NZBW79ZAYFIuw6EWvhOluYeCjWsYRc921qumO9ZBNNe49ZB32MCOm6sCzTWU3qZBRHDY36mCRNKZBpPXBsFsJAkyx1p2jZALP63ZBMLYwloT3gRsrgRFrQeogZCiOygzfTRA5ZAlUqP1TEu4FRQ9iIiTjSAOMU0cScZD")).json()
+		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BALlRnx6WdbW8hwCU9kmkPF4sFtb0Jiot9X7eWw1tvDcvZCzmJsdQxGpTPshg5tFffzCdgoepKIqPyw3aDS1KXYrQ9vPatdqRfFujcpiCgLqExZByFCp9ZCrlQgjq829pOYYFoZAenLQQqfQJtZCOJybfk2t5G9TxQZCc6qw04emWDgFDdga1wZD")).json()
 		first_name = r['first_name']
 		last_name = r['last_name']
 		
