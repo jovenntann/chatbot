@@ -191,42 +191,42 @@ templates:
   - text: Hi {first_name} {last_name}! How can I help you today?
     quick_replies:
     - content_type: text
-      title: About Us
+      title: ℹ️About Us
       payload: About Us
     - content_type: text
-      title: Hire Provider
+      title: 🔍 Hire Provider
       payload: Hire Provider
     - content_type: text
-      title: Be an Agent
+      title: 😎Be an Agent
       payload: Be an Agent
     - content_type: text
-      title: Be a Provider
+      title: 👷Be a Provider
       payload: Be a Provider
   - text: Good Day {first_name} {last_name}! How can I assist you?
     quick_replies:
     - content_type: text
-      title: About Us
+      title: ℹ️About Us
       payload: About Us
     - content_type: text
-      title: Hire Provider
+      title: 🔍 Hire Provider
       payload: Hire Provider
     - content_type: text
-      title: Be an Agent
+      title: 😎Be an Agent
       payload: Be an Agent
     - content_type: text
-      title: Be a Provider
+      title: 👷Be a Provider
       payload: Be a Provider
   utter_aboutus:
   - text: "Our platform is tailor made to make sure that every Provider gets the opportunity to increase their sales with minimal effort and without breaking a bank account. Agents are also ensured of getting an income by giving them anything they need to make a sale"
     quick_replies:
     - content_type: text
-      title: Hire Provider
+      title: 🔍 Hire Provider
       payload: Hire Provider
     - content_type: text
-      title: Be an Agent
+      title: 😎Be an Agent
       payload: Be an Agent
     - content_type: text
-      title: Be a Provider
+      title: 👷Be a Provider
       payload: Be a Provider
   utter_goodbye:
   - text: Bye

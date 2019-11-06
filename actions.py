@@ -128,21 +128,7 @@ class ActionSearchProvider(Action):
         time = tracker.get_slot('time')
         phone_number = tracker.get_slot('phone_number')
 
-        # ---------------------------------------------------------------
-        # API REQUEST
-        # ---------------------------------------------------------------
-        # url = f"https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=dentist&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=3c4164ab5182e76b1e8b2055f496257c"
-        # response_json = requests.request("GET", url)
-        # response_json = response_json.json()
-        # provider_name = response_json['data'][0]['profile']['bio']
-
-        # ---------------------------------------------------------------
-        # UTTER MESSAGE
-        # ---------------------------------------------------------------
-        # dispatcher.utter_message(f"Here is What I Found, {provider_name}")
-
-        # IF TIME IS EMPTY UTTER_ASK_WHEN
-
+        # NOTE: IF TIME IS EMPTY UTTER_ASK_WHEN
         if specialty:
             image = images.get(specialty.lower(), 'https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/chameleon/title-movie/DP_4169338_TC_1400x2100_DP_4169339_SEARCHING_2000x3000_EST_1.jpg') 
 
@@ -175,7 +161,7 @@ class ActionSearchProvider(Action):
             }
 
             text_message = f"Hi {first_name}! You have requested for {specialty} in {location}. \n\nFor more details please visit https://m.me/servicereferralhub"
-            requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={text_message}') 
+            # requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={text_message}') 
             dispatcher.utter_message(f"Note: You will earn a Rebate for every successful booking from this platform and it will automatically added in your Service Referral Hub - Wallet. ")
             dispatcher.utter_message(f'You have requested for {specialty} in {location} at {time} and your contact number is {phone_number}. Please Tap on "Confirm" to confirm you request.')
     
