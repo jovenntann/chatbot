@@ -348,18 +348,21 @@ templates:
               subtitle: Electrical Installation, Maintenance & Troubleshooting
               buttons:
               - type: web_url
-                url: https://www.servicereferralhub.com/provider/reviews/
+                url: https://www.servicereferralhub.com/messenger/electrical-services/
                 title: Electrical Services
                 messenger_extensions: true
                 webview_height_ratio: full
-                fallback_url: https://www.servicereferralhub.com/provider/reviews/
+                fallback_url: https://www.servicereferralhub.com/messenger/electrical-services/
             - title: Plumbing
               image_url: http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg
               subtitle: Plumbing Services
               buttons:
-              - type: postback
-                title: Plumbing Services
-                payload: plumbing_services
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/plumbing-services/
+                title: Electrical Services
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/plumbing-services/
             - title: Aircon Services
               image_url: https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg
               subtitle: Aircon Installation, Cleaning & Repair
