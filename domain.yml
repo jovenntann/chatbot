@@ -367,9 +367,12 @@ templates:
               image_url: https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg
               subtitle: Aircon Installation, Cleaning & Repair
               buttons:
-              - type: postback
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/aircon-services/
                 title: Aircon Services
-                payload: aircon_services
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/aircon-services/
             - title: Home Renovation
               image_url: https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg
               subtitle: Home Renovation & Improvements
