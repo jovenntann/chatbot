@@ -165,16 +165,22 @@ templates:
               image_url: https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg
               subtitle: Hire our cleaning experts
               buttons:
-              - type: postback
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/cleaning-services/
                 title: Cleaning Services
-                payload: cleaning_services
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/cleaning-services/
             - title: Interior Design
               image_url: https://www.arch2o.com/wp-content/uploads/2018/09/Arch2O-InteriorDesigner-9-1.jpg
               subtitle: Interior Design Experts
               buttons:
-              - type: postback
-                title: Interior Design
-                payload: interior_design
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/interior-designer/
+                title: Interior Designer
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/interior-designer/
             - title: Electrical Services
               image_url: http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg
               subtitle: Electrical Installation, Maintenance & Troubleshooting
@@ -185,7 +191,7 @@ templates:
                 messenger_extensions: true
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/electrical-services/
-            - title: Plumbing
+            - title: Plumbing Services
               image_url: http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg
               subtitle: Plumbing Services
               buttons:
@@ -209,16 +215,22 @@ templates:
               image_url: https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg
               subtitle: Home Renovation & Improvements
               buttons:
-              - type: postback
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/home-renovation/
                 title: Home Renovation
-                payload: home_renovation 
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/home-renovation/
             - title: Laundry & Dry Cleaning
               image_url: https://media3.s-nbcnews.com/i/newscms/2016_32/1149295/laundry-stock-today-160808-tease_8816217b49c15bf3fc07bbcd6558c2db.jpg
               subtitle: Dry Cleaning to Wash & Fold Services
               buttons:
-              - type: postback
-                title: Laundry
-                payload: laundry_services
+              - type: web_url
+                url: https://www.servicereferralhub.com/messenger/laundry-services/
+                title: Laundry Services
+                messenger_extensions: true
+                webview_height_ratio: full
+                fallback_url: https://www.servicereferralhub.com/messenger/laundry-services/
 
   # utter_ask_technology_services:
   #   - custom: 
