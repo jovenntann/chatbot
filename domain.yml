@@ -168,7 +168,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/cleaning-services/
                 title: Cleaning Services
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/cleaning-services/
             - title: Interior Design
@@ -178,7 +177,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/interior-designer/
                 title: Interior Designer
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/interior-designer/
             - title: Electrical Services
@@ -188,7 +186,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/electrical-services/
                 title: Electrical Services
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/electrical-services/
             - title: Plumbing Services
@@ -198,7 +195,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/plumbing-services/
                 title: Plumbing Services
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/plumbing-services/
             - title: Aircon Services
@@ -208,7 +204,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/aircon-services/
                 title: Aircon Services
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/aircon-services/
             - title: Home Renovation
@@ -218,7 +213,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/home-renovation/
                 title: Home Renovation
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/home-renovation/
             - title: Laundry & Dry Cleaning
@@ -228,7 +222,6 @@ templates:
               - type: web_url
                 url: https://www.servicereferralhub.com/messenger/laundry-services/
                 title: Laundry Services
-                messenger_extensions: True
                 webview_height_ratio: full
                 fallback_url: https://www.servicereferralhub.com/messenger/laundry-services/
 
