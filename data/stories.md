@@ -37,5 +37,5 @@
     - utter_ask_main_category
 * provider_home{"main_category": "home"}
     - slot{"main_category": "home"}
-    - utter_ask_home_services
+    - action_ask_home_services
 

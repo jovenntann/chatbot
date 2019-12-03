@@ -72,7 +72,7 @@ class ActionName(Action):
 		most_recent_state = tracker.current_state()
 		sender_id = most_recent_state['sender_id']
 		
-		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BALlRnx6WdbW8hwCU9kmkPF4sFtb0Jiot9X7eWw1tvDcvZCzmJsdQxGpTPshg5tFffzCdgoepKIqPyw3aDS1KXYrQ9vPatdqRfFujcpiCgLqExZByFCp9ZCrlQgjq829pOYYFoZAenLQQqfQJtZCOJybfk2t5G9TxQZCc6qw04emWDgFDdga1wZD")).json()
+		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD")).json()
 		first_name = r['first_name']
 		last_name = r['last_name']
 		
@@ -172,7 +172,134 @@ class ActionSearchProvider(Action):
         return []
 
 
+class ActionAskHomeServices(Action):
 
+    def name(self) -> Text:
+        return "action_ask_home_services"
+
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker,domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        most_recent_state = tracker.current_state()
+        sender_id = most_recent_state['sender_id']
+
+        message = {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                        "template_type": "generic",
+                        "elements": [
+                            {
+                            "title": "Cleaning Services",
+                            "image_url": "https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
+                            "subtitle": "Hire our cleaning experts",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/cleaning-services/" + sender_id,
+                                "title": "Cleaning Services",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/cleaning-services/" + sender_id
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Interior Design",
+                            "image_url": "https://www.arch2o.com/wp-content/uploads/2018/09/Arch2O-InteriorDesigner-9-1.jpg",
+                            "subtitle": "Interior Design Experts",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/interior-designer/",
+                                "title": "Interior Designer",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/interior-designer/"
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Electrical Services",
+                            "image_url": "http://midtowncitygreens.org/wp-content/uploads/2019/06/cropped-midtowncitygreens-header.jpg",
+                            "subtitle": "Electrical Installation, Maintenance & Troubleshooting",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/electrical-services/",
+                                "title": "Electrical Services",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/electrical-services/"
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Plumbing Services",
+                            "image_url": "http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg",
+                            "subtitle": "Plumbing Services",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/plumbing-services/",
+                                "title": "Plumbing Services",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/plumbing-services/"
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Aircon Services",
+                            "image_url": "https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg",
+                            "subtitle": "Aircon Installation, Cleaning & Repair",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/aircon-services/",
+                                "title": "Aircon Services",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/aircon-services/"
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Home Renovation",
+                            "image_url": "https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg",
+                            "subtitle": "Home Renovation & Improvements",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/home-renovation/",
+                                "title": "Home Renovation",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/home-renovation/"
+                                }
+                            ]
+                            },
+                            {
+                            "title": "Laundry & Dry Cleaning",
+                            "image_url": "https://media3.s-nbcnews.com/i/newscms/2016_32/1149295/laundry-stock-today-160808-tease_8816217b49c15bf3fc07bbcd6558c2db.jpg",
+                            "subtitle": "Dry Cleaning to Wash & Fold Services",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/laundry-services/",
+                                "title": "Laundry Services",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/laundry-services/"
+                                }
+                            ]
+                            }
+                        ]
+                        }
+                    }
+                   }
+
+        dispatcher.utter_custom_json(message)
+        return []
 
 
 

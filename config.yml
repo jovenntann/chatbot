@@ -2,8 +2,8 @@
 # https://rasa.com/docs/rasa/nlu/components/
 
 # Default
-# language: en
-# pipeline: supervised_embeddings
+language: en
+pipeline: supervised_embeddings
 
 
 # ----------------------------------
@@ -19,20 +19,20 @@
 # ----------------------------------
 # DUCKLING # https://rasa.com/docs/rasa/nlu/components/#ducklinghttpextractor
 # ----------------------------------
-language: "en"
-pipeline: 
-- name: "WhitespaceTokenizer"
-- name: "RegexFeaturizer"
-- name: "CRFEntityExtractor"
-- name: "EntitySynonymMapper"
-- name: "CountVectorsFeaturizer"
-- name: "EmbeddingIntentClassifier"
-  intent_tokenization_flag: true
-  intent_split_symbol: "+"
-- name: "DucklingHTTPExtractor"
-  url: "http://127.0.0.1:8000"
-  dimensions: ["time"]
-  timezone: "Asia/Manila"
+# language: "en"
+# pipeline: 
+# - name: "WhitespaceTokenizer"
+# - name: "RegexFeaturizer"
+# - name: "CRFEntityExtractor"
+# - name: "EntitySynonymMapper"
+# - name: "CountVectorsFeaturizer"
+# - name: "EmbeddingIntentClassifier"
+#   intent_tokenization_flag: true
+#   intent_split_symbol: "+"
+# - name: "DucklingHTTPExtractor"
+#   url: "http://127.0.0.1:8000"
+#   dimensions: ["time"]
+#   timezone: "Asia/Manila"
 
 # ----------------------------------
 # SPACY
