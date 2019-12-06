@@ -9,6 +9,8 @@ from rasa_sdk.events import SlotSet
 # API REQUESTS ======================================================================================
 import requests
 import json
+import requests
+import time
 
 # MINI DATABASE ======================================================================================
 images = {
@@ -77,6 +79,30 @@ class ActionName(Action):
 		last_name = r['last_name']
 		
 		return [SlotSet('first_name', first_name), SlotSet('last_name', last_name)]
+
+class ActionTyping(Action):
+    def name(self):
+        return 'action_typing'
+
+    def run(self, dispatcher, tracker, domain):
+
+        most_recent_state = tracker.current_state()
+        sender_id = most_recent_state['sender_id']
+
+        headers = {'Content-Type': 'application/json',}
+        data = """
+            {
+                "recipient":{
+                "id":" """ + sender_id + """ ",
+                },
+                "sender_action":"typing_on"
+            }
+        """
+        requests.post('https://graph.facebook.com/v4.0/me/messages?access_token=EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD', headers=headers, data=data)
+        
+        time.sleep(1)
+
+        return None
         
 class ActionGreet(Action):
 

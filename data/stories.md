@@ -15,6 +15,7 @@
 
 # Talk to Human
 * talktohuman
+  - action_typing
   - utter_transfer_to_agent
 
 ## Greet
@@ -22,20 +23,28 @@
   - action_name
   - slot{"first_name":"Jovenn"}
   - slot{"last_name":"Tan"}
+  - action_typing
   - utter_greet
 
 ## welcome
 * thankyou
+  - action_typing
   - utter_welcome
 
 ## goodbye
 * goodbye
+  - action_typing
   - utter_goodbye
 
+## Home Category
+* provider_lookup
+    - action_ask_home_services
+
+<!-- This should be the flow once I added other services
 ## Home Category
 * provider_lookup
     - utter_ask_main_category
 * provider_home{"main_category": "home"}
     - slot{"main_category": "home"}
-    - action_ask_home_services
+    - action_ask_home_services -->
 

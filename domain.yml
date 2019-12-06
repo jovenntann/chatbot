@@ -4,6 +4,7 @@ actions:
 - action_search_provider
 - action_name
 - action_ask_home_services
+- action_typing
 # Get Started
 - utter_getstarted
 # General
