@@ -40,11 +40,9 @@
 * provider_lookup
     - action_ask_home_services
 
-<!-- This should be the flow once I added other services
-## Home Category
-* provider_lookup
-    - utter_ask_main_category
-* provider_home{"main_category": "home"}
-    - slot{"main_category": "home"}
-    - action_ask_home_services -->
+## Provider
+* provider
+    - utter_become_provider
+    - action_typing
+    - action_verify_provider
 

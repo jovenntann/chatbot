@@ -5,6 +5,7 @@ actions:
 - action_name
 - action_ask_home_services
 - action_typing
+- action_verify_provider
 # Get Started
 - utter_getstarted
 # General
@@ -19,6 +20,9 @@ actions:
 
 # Home Services
 - utter_ask_home_services
+
+# Provider
+- utter_become_provider
 
 
 entities:
@@ -49,6 +53,8 @@ intents:
 - provider_events
 - provider_transport
 - provider_technology
+# Provider Portal
+- provider
 
 slots:
   # General
@@ -127,35 +133,6 @@ templates:
                 title: Home
                 payload: home
                 
-            # - title: Automotive & Transport
-            #   image_url: https://ehsangoods.com/wp-content/uploads/2018/12/2826843-how-to-pursue-furniture-shifting-while-you-relocate-to-a-distant-city_600px.png
-            #   subtitle: Movers, Trucking Services, Office Movers & Relocators
-            #   buttons:
-            #   - type: postback
-            #     title: Automotive & Transport
-            #     payload: transport
-            # - title: Office
-            #   image_url: https://3.imimg.com/data3/RY/BH/MY-11924991/back-office-services-500x500.jpg
-            #   subtitle: Business Services & IT Solutions
-            #   buttons:
-            #   - type: postback
-            #     title: Office
-            #     payload: office
-            # - title: Events
-            #   image_url: https://www.pottergroupevents.co.uk/wp-content/uploads/2018/09/E3A1604.jpg
-            #   subtitle: Photographer, Lights, Videographer & Catering
-            #   buttons:
-            #   - type: postback
-            #     title: Events
-            #     payload: events
-            # - title: Technology
-            #   image_url: https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg
-            #   subtitle: Software & Hardware Technology
-            #   buttons:
-            #   - type: postback
-            #     title: Technology
-            #     payload: technology
-
   utter_ask_home_services:
     - custom: 
         attachment:
@@ -234,39 +211,5 @@ templates:
                 messenger_extensions: true
                 fallback_url: https://www.servicereferralhub.com/messenger/laundry-services/
 
-  # utter_ask_technology_services:
-  #   - custom: 
-  #       attachment:
-  #         type: template
-  #         payload:
-  #           template_type: generic
-  #           elements:
-  #           - title: Web Development
-  #             image_url: https://careerfoundry.com/en/blog/uploads/web_dev_pillar_page.jpg
-  #             subtitle: Old music is great. Old websites are not
-  #             buttons:
-  #             - type: postback
-  #               title: Web Development
-  #               payload: web_development
-  #           - title: Mobile Development
-  #             image_url: https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg
-  #             subtitle: Launch your first Mobile App
-  #             buttons:
-  #             - type: postback
-  #               title: Mobile Development
-  #               payload: mobile_development
-  #           - title: Marketing Services
-  #             image_url: https://www.evolvedigitas.com/blog/wp-content/uploads/2018/05/digital-marketing.jpg
-  #             subtitle: Explore the Strategy of Services Marketing
-  #             buttons:
-  #             - type: postback
-  #               title: Marketing Services
-  #               payload: marketing_services
-  #           - title: Graphic Design
-  #             image_url: https://www.shillingtoneducation.com/content-blog/uploads/2019/01/IMG_4022-copy.jpg
-  #             subtitle: Great designs inspire people and drive them to action
-  #             buttons:
-  #             - type: postback
-  #               title: Graphic Design
-  #               payload: graphic_design
- 
+  utter_become_provider:
+  - text: Are you someone who can provide a product or service? Join us and become part of a revolution. We break boundaries and open new opportunities for you to gain more clients.
