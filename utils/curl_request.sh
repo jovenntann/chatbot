@@ -157,7 +157,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
         ]
     }
 ]
-}' "https://graph.facebook.com/v4.0/me/messenger_profile?access_token=EAAFfYX0Yvt0BALlRnx6WdbW8hwCU9kmkPF4sFtb0Jiot9X7eWw1tvDcvZCzmJsdQxGpTPshg5tFffzCdgoepKIqPyw3aDS1KXYrQ9vPatdqRfFujcpiCgLqExZByFCp9ZCrlQgjq829pOYYFoZAenLQQqfQJtZCOJybfk2t5G9TxQZCc6qw04emWDgFDdga1wZD"
+}' "https://graph.facebook.com/v4.0/me/messenger_profile?access_token=EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD"
 
 ## LIST VIEW
 
@@ -209,3 +209,44 @@ curl -X POST -H "Content-Type: application/json" -d '{
     }
   }
 }' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAFfYX0Yvt0BAJrZAFFkEaUYZCADKGjhZAZCgH2NZBW79ZAYFIuw6EWvhOluYeCjWsYRc921qumO9ZBNNe49ZB32MCOm6sCzTWU3qZBRHDY36mCRNKZBpPXBsFsJAkyx1p2jZALP63ZBMLYwloT3gRsrgRFrQeogZCiOygzfTRA5ZAlUqP1TEu4FRQ9iIiTjSAOMU0cScZD"
+
+
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "message":{
+    "attachment":{
+      "type":"image", 
+      "payload":{
+        "is_reusable": true,
+        "url":"https://cdn.dribbble.com/users/220043/screenshots/6288970/dttr_loaderricerca_ac_ver1.gif"
+      }
+    }
+  }
+}' "https://graph.facebook.com/v5.0/me/message_attachments?access_token=EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD"
+  
+
+
+
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2233033630067075"
+  },
+  "messaging_type": "RESPONSE",
+  "message":{
+    "text": "Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"Red",
+      },{
+        "content_type":"text",
+        "title":"Green",
+        "payload":"Green",
+      }
+    ]
+  }
+}' "https://graph.facebook.com/v5.0/me/messages?access_token=EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD"

@@ -1,11 +1,11 @@
 ## RASA GUIDE  
-
+RASA==1.2.7
 #### Starting the Servers:
 ```bash
 rasa run --credentials credentials.yml
 rasa run actions
 ./ngrok http 5005
-stack exec duckling-example-exe
+# stack exec duckling-example-exe
 
 # Monitor Webhook Logs
 http://localhost:4040 

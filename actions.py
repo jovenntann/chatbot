@@ -38,6 +38,55 @@ images = {
   "graphic_design":"https://www.shillingtoneducation.com/content-blog/uploads/2019/01/IMG_4022-copy.jpg",
 }
 
+def checkifProviderRegistered(sender_id):
+    conn = mysql.connector.Connect(host='localhost',user='root',password='09106850351',database='servicereferralhub')
+    cursor = conn.cursor()
+    sql = f"SELECT * FROM srhubapp_messengerprovider WHERE sender_id = '{sender_id}';" 
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    message = {}
+
+    if result:
+            message = {
+                "text": "Welcome back! Select an option below.",
+                "quick_replies":[
+                    {
+                    "content_type":"text",
+                    "title":"🙋‍♀️ Show Requests",
+                    "payload":"View Requests",
+                    },{
+                    "content_type":"text",
+                    "title":"👨🏻‍💻 My Profile",
+                    "payload":"Profile",
+                    }]
+            }
+    else:
+            message = {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                        "template_type": "generic",
+                        "elements": [
+                            {
+                            "title": "Sign-up",
+                            "image_url": "https://www.tune.com/wp-content/themes/tune.com/img/pages/our-platform-mobile.png",
+                            "subtitle": "Become one of our Trusted Service Provider",
+                            "buttons": [
+                                {
+                                "type": "web_url",
+                                "url": "https://www.servicereferralhub.com/messenger/provider/signup/" + sender_id,
+                                "title": "Sign-up",
+                                "webview_height_ratio": "full",
+                                "messenger_extensions": True,
+                                "fallback_url": "https://www.servicereferralhub.com/messenger/provider/signup/" + sender_id
+                                }]
+                            }
+                        ]
+                        }
+                    }
+            }
+
+    return message
 
 def getCategories(sender_id):
     conn = mysql.connector.Connect(host='localhost',user='root',password='09106850351',database='servicereferralhub')
@@ -67,6 +116,51 @@ def getCategories(sender_id):
 
     return elements
 
+def getCategoryDetails(category):
+    conn = mysql.connector.Connect(host='localhost',user='root',password='09106850351',database='servicereferralhub')
+    cursor = conn.cursor()
+    sql = f"SELECT title,picture FROM srhubapp_messengerform WHERE category = '{category}' LIMIT 1;" 
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    
+    details = {}
+
+    for row in result:
+        details['title'] = row[0]
+        details['picture'] = row[1]
+    
+    return details
+
+def getRequest(provider_id):
+    conn = mysql.connector.Connect(host='localhost',user='root',password='09106850351',database='servicereferralhub')
+    cursor = conn.cursor()
+    sql = "SELECT id,sender_id,name,address,category FROM srhubapp_messengerrequest LIMIT 10;" 
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    elements = []
+
+    for row in result:
+        category_details = getCategoryDetails(row[4])
+        title = category_details['title']
+        picture = category_details['picture']
+        data = {
+                    "title": f"{row[2]} - {title}",
+                    "image_url": picture,
+                    "subtitle": row[3],
+                    "buttons": [
+                        {
+                        "type": "web_url",
+                        "url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
+                        "title": "Send Quotation",
+                        "webview_height_ratio": "full",
+                        "messenger_extensions": True,
+                        "fallback_url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
+                        }
+                    ]
+                }
+        elements.append(data)
+
+    return elements
 
 
 class MyFallbackAction(Action):
@@ -213,8 +307,6 @@ class ActionSearchProvider(Action):
                 }
             }
 
-            text_message = f"Hi {first_name}! You have requested for {specialty} in {location}. \n\nFor more details please visit https://m.me/servicereferralhub"
-            # requests.post(url = f'http://sms.servicereferralhub.com:1401/send?username=foo&password=bar&to={phone_number}&content={text_message}') 
             dispatcher.utter_message(f"Note: You will earn a Rebate for every successful booking from this platform and it will automatically added in your Service Referral Hub - Wallet. ")
             dispatcher.utter_message(f'You have requested for {specialty} in {location} at {time} and your contact number is {phone_number}. Please Tap on "Confirm" to confirm you request.')
     
@@ -242,119 +334,9 @@ class ActionAskHomeServices(Action):
                         "payload": {
                         "template_type": "generic",
                         "elements": elements,
-
-                        # "elements": [
-                        #     {
-                        #     "title": "Cleaning Services",
-                        #     "image_url": "https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
-                        #     "subtitle": "Hire our cleaning experts",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/cleaning-services/" + sender_id,
-                        #         "title": "Cleaning Services",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/cleaning-services/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Interior Design",
-                        #     "image_url": "https://www.arch2o.com/wp-content/uploads/2018/09/Arch2O-InteriorDesigner-9-1.jpg",
-                        #     "subtitle": "Interior Design Experts",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/interior-designer/" + sender_id,
-                        #         "title": "Interior Designer",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/interior-designer/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Electrical Services",
-                        #     "image_url": "https://www.thebalancecareers.com/thmb/-9-lS4IQNqo1CWdnXXuO7crlY90=/950x0/electrician-working-at-site-557134105-59a9cf96054ad90010039ae0.jpg",
-                        #     "subtitle": "Electrical Installation, Maintenance & Troubleshooting",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/electrical-services-list/" + sender_id,
-                        #         "title": "Electrical Services",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/electrical-services-list/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Plumbing Services",
-                        #     "image_url": "http://www.phdmechanicalnj.com/wp-content/uploads/2016/05/phd-mechanical-Kitchen-Plumbing-Services.jpg",
-                        #     "subtitle": "Plumbing Services",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/plumbing-services/" + sender_id,
-                        #         "title": "Plumbing Services",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/plumbing-services/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Aircon Services",
-                        #     "image_url": "https://www.81aircon.com/wp-content/uploads/2016/11/repair.jpg",
-                        #     "subtitle": "Aircon Installation, Cleaning & Repair",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/aircon-services/" + sender_id,
-                        #         "title": "Aircon Services",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/aircon-services/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Home Renovation",
-                        #     "image_url": "https://img-aws.ehowcdn.com/600x600p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/94dbf74690e34394bd9da6624ba75e3a.jpg",
-                        #     "subtitle": "Home Renovation & Improvements",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/home-renovation/" + sender_id,
-                        #         "title": "Home Renovation",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/home-renovation/" + sender_id
-                        #         }
-                        #     ]
-                        #     },
-                        #     {
-                        #     "title": "Laundry & Dry Cleaning",
-                        #     "image_url": "https://media3.s-nbcnews.com/i/newscms/2016_32/1149295/laundry-stock-today-160808-tease_8816217b49c15bf3fc07bbcd6558c2db.jpg",
-                        #     "subtitle": "Dry Cleaning to Wash & Fold Services",
-                        #     "buttons": [
-                        #         {
-                        #         "type": "web_url",
-                        #         "url": "https://www.servicereferralhub.com/messenger/laundry-services/" + sender_id,
-                        #         "title": "Laundry Services",
-                        #         "webview_height_ratio": "full",
-                        #         "messenger_extensions": True,
-                        #         "fallback_url": "https://www.servicereferralhub.com/messenger/laundry-services/" + sender_id
-                        #         }
-                        #     ]
-                        #     }
-                        # ]
-
                         }
                     }
                    }
-
         dispatcher.utter_custom_json(message)
         return []
 
@@ -369,31 +351,30 @@ class ActionVerifyProvider(Action):
         most_recent_state = tracker.current_state()
         sender_id = most_recent_state['sender_id']
 
+        message = checkifProviderRegistered(sender_id)
+
+        dispatcher.utter_custom_json(message)
+        return []
+
+class ActionShowRequests(Action):
+
+    def name(self) -> Text:
+        return "action_show_requests"
+
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker,domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        most_recent_state = tracker.current_state()
+        sender_id = most_recent_state['sender_id']
+
+        elements = getRequest(sender_id)
         message = {
                     "attachment": {
                         "type": "template",
                         "payload": {
                         "template_type": "generic",
-                        "elements": [
-                            {
-                            "title": "Sign-up",
-                            "image_url": "https://www.tune.com/wp-content/themes/tune.com/img/pages/our-platform-mobile.png",
-                            "subtitle": "Become one of our Trusted Service Provider",
-                            "buttons": [
-                                {
-                                "type": "web_url",
-                                "url": "https://www.servicereferralhub.com/messenger/provider/signup/" + sender_id,
-                                "title": "Sign-up",
-                                "webview_height_ratio": "full",
-                                "messenger_extensions": True,
-                                "fallback_url": "https://www.servicereferralhub.com/messenger/provider/signups/" + sender_id
-                                }
-                            ]
-                            }
-                        ]
+                        "elements": elements,
                         }
                     }
-                   }
-
+                }
         dispatcher.utter_custom_json(message)
         return []

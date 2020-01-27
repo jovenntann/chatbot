@@ -323,3 +323,8 @@
 ## intent:provider
 - provider
 - Provider
+
+## intent:provider_view_request
+- view request
+- show requests
+- requests

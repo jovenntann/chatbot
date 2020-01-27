@@ -42,7 +42,8 @@
 
 ## Provider
 * provider
-    - utter_become_provider
-    - action_typing
     - action_verify_provider
 
+## Provider - View Requests
+* provider_view_request
+    - action_show_requests

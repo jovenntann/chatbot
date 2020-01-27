@@ -6,6 +6,7 @@ actions:
 - action_ask_home_services
 - action_typing
 - action_verify_provider
+- action_show_requests
 # Get Started
 - utter_getstarted
 # General
@@ -55,6 +56,7 @@ intents:
 - provider_technology
 # Provider Portal
 - provider
+- provider_view_request
 
 slots:
   # General
