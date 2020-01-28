@@ -3,17 +3,16 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker 
 from rasa_sdk.executor import CollectingDispatcher
 
-# SET SLOTS =========================================================================================
+# SET SLOTS
 from rasa_sdk.events import SlotSet
-
-# API REQUESTS ======================================================================================
+# API REQUESTS
 import requests
 import json
 import requests
 import time
 import mysql.connector
 
-# MINI DATABASE ======================================================================================
+# MINI DATABASE 
 images = {
   "thorough_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
   "house_cleaning":"https://images.summitmedia-digital.com/spotph/images/2017/07/31/CleaningServices_10.jpg",
@@ -134,7 +133,7 @@ def getCategoryDetails(category):
 def getRequest(provider_id):
     conn = mysql.connector.Connect(host='localhost',user='root',password='09106850351',database='servicereferralhub')
     cursor = conn.cursor()
-    sql = "SELECT id,sender_id,name,address,category FROM srhubapp_messengerrequest LIMIT 10;" 
+    sql = "SELECT id,sender_id,name,address,category FROM srhubapp_messengerrequest ORDER BY id desc LIMIT 10;" 
     cursor.execute(sql)
     result = cursor.fetchall()
     elements = []
@@ -151,7 +150,7 @@ def getRequest(provider_id):
                         {
                         "type": "web_url",
                         "url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
-                        "title": "Send Quotation",
+                        "title": "Send Quote",
                         "webview_height_ratio": "full",
                         "messenger_extensions": True,
                         "fallback_url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
@@ -269,16 +268,12 @@ class ActionSearchProvider(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # ---------------------------------------------------------------
-        # GET SLOTS FROM TRACKER
-        # ---------------------------------------------------------------
         specialty = tracker.get_slot('specialty')
         first_name = tracker.get_slot('first_name')
         location = tracker.get_slot('location')
         time = tracker.get_slot('time')
         phone_number = tracker.get_slot('phone_number')
 
-        # NOTE: IF TIME IS EMPTY UTTER_ASK_WHEN
         if specialty:
             image = images.get(specialty.lower(), 'https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/chameleon/title-movie/DP_4169338_TC_1400x2100_DP_4169339_SEARCHING_2000x3000_EST_1.jpg') 
 
