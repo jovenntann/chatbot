@@ -150,7 +150,7 @@ def getRequest(provider_id):
                         {
                         "type": "web_url",
                         "url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
-                        "title": "Send Quote",
+                        "title": "View Details",
                         "webview_height_ratio": "full",
                         "messenger_extensions": True,
                         "fallback_url": "https://www.servicereferralhub.com/messenger/request/" + str(row[0]) + "/" + provider_id,
