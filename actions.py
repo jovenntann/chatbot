@@ -172,17 +172,22 @@ class MyFallbackAction(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         message = {
-            "text": "I'm Sorry, Can you rephrase that?",
+            "text": "Sorry I didn't get that. Can you rephrase that?",
             "quick_replies":[
             {
                 "content_type":"text",
-                "title":"About Us",
-                "payload":"About Us",
+                "title":"🔍 Hire Provider",
+                "payload":"Hire Provider",
             },
             {
                 "content_type":"text",
-                "title":"Talk to Human",
-                "payload":"Talk to Human",
+                "title":"📣 Referrals",
+                "payload":"Referrals",
+            },
+            {
+                "content_type":"text",
+                "title":"👷Provider",
+                "payload":"Provider",
             }]
         }
 

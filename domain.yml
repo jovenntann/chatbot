@@ -79,8 +79,8 @@ templates:
       title: 🔍 Hire Provider
       payload: Hire Provider
     - content_type: text
-      title: 😎Agent
-      payload: Agent
+      title: 📣 Referrals
+      payload: Referrals
     - content_type: text
       title: 👷Provider
       payload: Provider
@@ -92,8 +92,8 @@ templates:
       title: 🔍 Hire Provider
       payload: Hire Provider
     - content_type: text
-      title: 😎Agent
-      payload: Agent
+      title: 📣 Referrals
+      payload: Referrals
     - content_type: text
       title: 👷Provider
       payload: Provider
