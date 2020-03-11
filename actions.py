@@ -47,11 +47,11 @@ def checkifProviderRegistered(sender_id):
 
     if result:
             message = {
-                "text": "Welcome back! Select an option below.",
+                "text": "Hi Service Provider, You can tap on Show Request to send quote to customers. hurry up.",
                 "quick_replies":[
                     {
                     "content_type":"text",
-                    "title":"🙋‍♀️ Show Requests",
+                    "title":"🙋‍♀️ Show Request",
                     "payload":"View Requests",
                     },{
                     "content_type":"text",
@@ -144,7 +144,8 @@ def getRequest(provider_id):
         picture = category_details['picture']
         data = {
                     "title": f"{row[2]} - {title}",
-                    "image_url": picture,
+                    #"image_url": picture,
+                    "image_url": f"https://maps.googleapis.com/maps/api/staticmap?size=512x512&maptype=roadmap\&markers=size:mid%7Ccolor:red%7C{row[3]},PH&key=AIzaSyCQxd3JrF3-AnF1Iv-ptCtC_RIkvIM3Erg",
                     "subtitle": row[3],
                     "buttons": [
                         {
@@ -204,7 +205,7 @@ class ActionName(Action):
 		most_recent_state = tracker.current_state()
 		sender_id = most_recent_state['sender_id']
 		
-		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD")).json()
+		r = requests.get('https://graph.facebook.com/{}?fields=first_name,last_name,profile_pic&access_token={}'.format(sender_id, "EAAFfYX0Yvt0BAAReJPpKhe5uBUMDSUjrT5cvDzlM7JpmeOl5bko12Iqc0dtqxyUrnjKfkWY8jfTSRx4PQd5mTBozdfd5ZCEWL1mFlmgJaZByeD99TwUMQda2vbklwoIAXXF4if4Pzkz7V7kWLZCw5xF0QZAWfSk222V9XsjcAgpP7AXlXQORTicXNOiB5HoZD")).json()
 		first_name = r['first_name']
 		last_name = r['last_name']
 		
@@ -228,9 +229,9 @@ class ActionTyping(Action):
                 "sender_action":"typing_on"
             }
         """
-        requests.post('https://graph.facebook.com/v4.0/me/messages?access_token=EAAFfYX0Yvt0BAEL6S4RQu8ZA5UJLRQ9bshQVLT6tFfaBQMuuwnddrimBR4VQ4I9HzsFjJA8B1ugzPr6ut4MK5X8CsNgqTqbwj3ZAVXP0B7JjLlSuqpNjMAfT7Dsn34VVtvLe3GcU62esDjSeErTybmY7Kx3n7uvUTZCJ7TZBMZAZAgLOgukkvVZBQA7IKzY2L8ZD', headers=headers, data=data)
+        requests.post('https://graph.facebook.com/v4.0/me/messages?access_token=EAAFfYX0Yvt0BAAReJPpKhe5uBUMDSUjrT5cvDzlM7JpmeOl5bko12Iqc0dtqxyUrnjKfkWY8jfTSRx4PQd5mTBozdfd5ZCEWL1mFlmgJaZByeD99TwUMQda2vbklwoIAXXF4if4Pzkz7V7kWLZCw5xF0QZAWfSk222V9XsjcAgpP7AXlXQORTicXNOiB5HoZD', headers=headers, data=data)
         
-        time.sleep(1)
+        #time.sleep(1)
 
         return None
         

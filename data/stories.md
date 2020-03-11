@@ -5,6 +5,7 @@
   - slot{"first_name":"Jovenn"}
   - slot{"last_name":"Tan"}
   - utter_getstarted
+  <!--Action Send Points to Referrer>
 
 # Get Started
 * get_started
